@@ -1,4 +1,4 @@
-Copyright &copy; 2011-2014 Keith Beckman, http://coding4streetcred.com/blog
+Copyright &copy; 2011-2014 Keith Beckman, [coding4streetcred.com](http://coding4streetcred.com/blog)<br>
 All rights reserved. Released under the MIT license.
 
 
