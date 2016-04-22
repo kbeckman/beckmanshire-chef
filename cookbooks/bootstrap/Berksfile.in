@@ -1,4 +1,4 @@
 source "https://supermarket.chef.io"
 
 cookbook 'homebrew'
-cookbook 'rvm', github: 'fnichol/chef-rvm'
+cookbook 'rvm', '~> 0.9.4'
