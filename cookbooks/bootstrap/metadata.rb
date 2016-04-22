@@ -1,7 +1,7 @@
-name             'bootstrap'
-maintainer       'YOUR_COMPANY_NAME'
-maintainer_email 'YOUR_EMAIL'
+name             'bootstrap_osx'
+maintainer       'Keith Beckman'
+maintainer_email 'kbeckman@redfournine.com'
 license          'All rights reserved'
-description      'Installs/Configures bootstrap'
+description      'Installs/Configures OS X development machine prerequisites.'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '0.1.0'
