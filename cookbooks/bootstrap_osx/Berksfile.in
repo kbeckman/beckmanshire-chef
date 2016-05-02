@@ -1,4 +1,4 @@
-source "https://supermarket.chef.io"
+source 'https://supermarket.chef.io'
 
-cookbook 'homebrew'
-cookbook 'rvm', '~> 0.9.4'
+cookbook 'homebrew',  '~> 2.1.0'
+cookbook 'rvm',       '~> 0.9.4'

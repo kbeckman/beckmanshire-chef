@@ -1,12 +1,12 @@
 DEPENDENCIES
-  bootstrap
-    path: cookbooks/bootstrap
+  bootstrap_osx
+    path: cookbooks/bootstrap_osx
   homebrew
   rvm (~> 0.9.4)
 
 GRAPH
   apt (3.0.0)
-  bootstrap (0.1.0)
+  bootstrap_osx (0.1.0)
   build-essential (3.2.0)
     seven_zip (>= 0.0.0)
   chef_gem (0.1.0)
