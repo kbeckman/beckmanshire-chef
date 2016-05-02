@@ -9,8 +9,9 @@
 
 
 # Requirement for "homebrew" recipe...
+# https://github.com/chef-cookbooks/homebrew
 directory '/usr/local' do
-  owner 'kbeckman'
-  group 'admin'
-  mode '0755'
+  owner   'kbeckman'
+  group   'admin'
+  mode    '0755'
 end
