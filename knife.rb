@@ -1,7 +1,3 @@
 ssl_verify_mode :verify_peer
 
-cookbook_path [
-  'berks-cookbooks',
-  'cookbooks',
-  'site-cookbooks'
-]
+cookbook_path %w(cookbooks berks-cookbooks site-cookbooks)
