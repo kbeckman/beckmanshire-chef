@@ -1,0 +1,109 @@
+// 05/16/2016
+// "recipe[mas]" removed from the run list because XCode ~> 7.3 is required to install/compile
+// mas via homebrew.
+
+
+{
+  "run_list": [
+    "recipe[bootstrap_osx]",
+    "recipe[homebrew]",
+    "recipe[homebrew::install_formulas]",
+    "recipe[homebrew::install_casks]",
+    "recipe[bootstrap_osx::brew_link_openssl]",
+    "recipe[rvm::user]"
+  ],
+  "automatic": {
+    "ipaddress": "ge-macbook.local"
+  },
+  "bootstrap_osx": {
+    "osx_user": "keithbeckman"
+  },
+  "homebrew": {
+    "owner":        "keithbeckman",
+    "auto-update":  true,
+    "formulas": [
+      "git",
+      "openssl",
+      "ssh-copy-id",
+      "p7zip",
+      "tree",
+      "wget",
+      "zsh",
+      "tmux",
+      "vim",
+      "postgresql",
+      "sqlite",
+      "imagemagick",
+      "phantomjs",
+      "elixir",
+      "mongodb",
+      "docker",
+      "boot2docker",
+      "docker-compose",
+      "docker-machine",
+      "docker-swarm",
+      "qt"
+    ],
+    "casks": [
+      "gfxcardstatus",
+      "nosleep",
+      "flux",
+      "screenhero",
+      "superduper",
+      "gpgtools",
+      "skitch",
+      "iterm2",
+      "firefox",
+      "torbrowser",
+      "google-chrome",
+      "google-drive",
+      "adobe-reader",
+      "atom",
+      "libreoffice",
+      "rubymine",
+      "datagrip",
+      "sourcetree",
+      "virtualbox",
+      "virtualbox-extension-pack",
+      "vagrant"
+    ]
+  },
+  "rvm": {
+    "user_installs": [
+      {
+        "user":           "keithbeckman",
+        "install_rubies": true,
+        "default_ruby":   "ruby-2.3.1",
+        "rubies": [
+          "ruby-2.1.6"
+        ],
+        "global_gems": [
+          {
+            "name":   "rubygems-bundler",
+            "action": "remove"
+          },
+          { "name": "bundler" },
+          { "name": "homesick" },
+          { "name": "pry" },
+          { "name": "pry-byebug" },
+          { "name": "rake" },
+          { "name": "tmuxinator" }
+        ]
+      }
+    ]
+  },
+  "mas": {
+    "osx_user": "keithbeckman",
+    "apple_id": "",
+    "password": "",
+    "apps": [
+      { "id": "784801555", "name": "Microsoft One Note" },
+      { "id": "449830122", "name": "Hyperdock" },
+      { "id": "443987910", "name": "1Password" },
+      { "id": "715768417", "name": "Microsoft Remote Desktop" },
+      { "id": "803453959", "name": "Slack" },
+      { "id": "407963104", "name": "Pixelmator" },
+      { "id": "496437906", "name": "Shush" }
+    ]
+  }
+}
