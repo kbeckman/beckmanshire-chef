@@ -8,13 +8,13 @@
     "recipe[rvm::user]"
   ],
   "automatic": {
-    "ipaddress": "ge-macbook.local"
+    "ipaddress": "vm-osx-sandbox"
   },
   "bootstrap_osx": {
-    "osx_user": "keithbeckman"
+    "osx_user": "kbeckman"
   },
   "homebrew": {
-    "owner":        "keithbeckman",
+    "owner":        "kbeckman",
     "auto-update":  true,
     "formulas": [
       "git",
@@ -27,45 +27,48 @@
       "tmux",
       "vim",
       "awscli",
+      "mas",
       "postgresql",
       "sqlite",
-      "mongodb",
       "imagemagick",
       "phantomjs",
-      "docker-swarm",
-      "qt"
+      "elixir"
     ],
     "casks": [
       "gfxcardstatus",
       "nosleep",
       "flux",
-      "screenhero",
+      "tunnelblick",
       "superduper",
-      "gpgtools",
-      "skitch",
-      "iterm2",
+      "screenhero",
+      "skype",
+      "libreoffice",
       "firefox",
+      "torbrowser",
       "google-chrome",
       "google-drive",
+      "google-earth",
+      "google-earth-web-plugin",
       "adobe-reader",
       "atom",
-      "libreoffice",
+      "iterm2",
       "rubymine",
       "datagrip",
       "sourcetree",
-      "dockertoolbox",
+      "diffmerge",
       "virtualbox",
       "virtualbox-extension-pack",
-      "vagrant"
+      "vagrant",
+      "dockertoolbox"
     ]
   },
   "rvm": {
     "user_installs": [
       {
-        "user":           "keithbeckman",
+        "user":           "kbeckman",
         "install_rubies": true,
         "default_ruby":   "ruby-2.3.1",
-        "rubies":         [ "ruby-2.2.5" ],
+        "rubies":         [ "ruby-2.1.6", "ruby-2.2.5" ],
         "global_gems": [
           {
             "name":   "rubygems-bundler",
