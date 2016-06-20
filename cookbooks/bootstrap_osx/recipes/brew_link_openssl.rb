@@ -1,12 +1,3 @@
-#
-# Cookbook Name:: bootstrap_osx
-# Recipe::        brew_link_openssl
-#
-# Copyright 2014, YOUR_COMPANY_NAME
-#
-# All rights reserved - Do Not Redistribute
-#
-
 osx_user  = node['bootstrap_osx']['osx_user']
 
 execute 'homebrew link openssl' do
