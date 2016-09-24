@@ -1,7 +1,7 @@
-name              'bootstrap_osx'
+name              'bootstrap'
 maintainer        'Keith Beckman'
 maintainer_email  'kbeckman@redfournine.com'
-description       'Installs/Configures OS X development machine prerequisites.'
+description       'Installs/Configures development machine prerequisites.'
 long_description  IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 source_url        'https://github.com/kbeckman/beckmanshire-chef'
 issues_url        'https://github.com/kbeckman/beckmanshire-chef/issues'
