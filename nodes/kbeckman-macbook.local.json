@@ -1,6 +1,5 @@
 {
   "run_list": [
-    "recipe[bootstrap_osx]",
     "recipe[homebrew]",
     "recipe[homebrew::install_formulas]",
     "recipe[homebrew::install_casks]",
