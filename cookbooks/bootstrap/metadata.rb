@@ -11,5 +11,5 @@ version           '0.1.0'
 chef_version      '~> 12'
 supports          '>= 10.11'
 
-depends           'homebrew', '~> 2.1.0'
+depends           'homebrew', '~> 2.1.2'
 depends           'rvm', '~> 0.9.4'
