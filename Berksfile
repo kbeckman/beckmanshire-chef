@@ -1,3 +1,3 @@
 source 'https://supermarket.chef.io'
 
-cookbook 'bootstrap_osx', path: 'cookbooks/bootstrap_osx'
+cookbook 'bootstrap', path: 'cookbooks/bootstrap'
