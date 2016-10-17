@@ -1,4 +1,3 @@
-# require 'mixlib/shellout'
 require 'spec_helper'
 
 RSpec.describe "#{COOKBOOK_NAME}::_oh_my_zsh" do
