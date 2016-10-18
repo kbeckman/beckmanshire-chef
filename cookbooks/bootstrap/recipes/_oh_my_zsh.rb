@@ -25,8 +25,8 @@ remote_file 'ohmyzsh_installer' do
 end
 
 bash 'install_ohmyzsh' do
-  cwd   '/tmp'
-  code  './install-ohmyzsh.sh'
-  action :nothing
-  subscribes :run, 'remote_file[ohmyzsh_installer]', :immediately
+  cwd         '/tmp'
+  code        './install-ohmyzsh.sh'
+  action      :nothing
+  subscribes  :create, 'remote_file[ohmyzsh_installer]', :immediately
 end
