@@ -18,15 +18,15 @@ execute 'change_shell_to_zsh' do
 end
 
 remote_file 'ohmyzsh_installer' do
-  path    '/tmp/install-ohmyzsh.sh'
+  path    "#{Chef::Config[:file_cache_path]}/install-ohmyzsh.sh"
   source  'http://install.ohmyz.sh'
   mode    '0777'
   not_if  { ohmyzsh_exists }
 end
 
 bash 'install_ohmyzsh' do
-  cwd         '/tmp'
+  cwd         Chef::Config[:file_cache_path]
   code        './install-ohmyzsh.sh'
   action      :nothing
-  subscribes  :create, 'remote_file[ohmyzsh_installer]', :immediately
+  subscribes  :run, 'remote_file[ohmyzsh_installer]', :immediately
 end

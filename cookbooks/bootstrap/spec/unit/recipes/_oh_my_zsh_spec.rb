@@ -52,7 +52,9 @@ RSpec.describe "#{COOKBOOK_NAME}::_oh_my_zsh" do
 
       it "executes 'ohmyzsh_installer'" do
         expect(chef_run).to create_remote_file('ohmyzsh_installer').
-          with({ path: '/tmp/install-ohmyzsh.sh', source: 'http://install.ohmyz.sh', mode: '0777' })
+          with({ path:  "#{Chef::Config[:file_cache_path]}/install-ohmyzsh.sh",
+                 source:  'http://install.ohmyz.sh',
+                 mode:    '0777' })
       end
     end
 
@@ -70,12 +72,12 @@ RSpec.describe "#{COOKBOOK_NAME}::_oh_my_zsh" do
 
     it 'is configured but does nothing until notified' do
       expect(subject).to          do_nothing
-      expect(subject.cwd).to eq   '/tmp'
+      expect(subject.cwd).to eq   Chef::Config[:file_cache_path]
       expect(subject.code).to eq  './install-ohmyzsh.sh'
     end
 
     it 'subscribes to remote_file[ohmyzsh_installer]' do
-      expect(subject).to subscribe_to('remote_file[ohmyzsh_installer]').on(:create).immediately
+      expect(subject).to subscribe_to('remote_file[ohmyzsh_installer]').on(:run).immediately
     end
   end
 end
