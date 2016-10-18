@@ -10,7 +10,7 @@ cmd       = Mixlib::ShellOut.new(shell_cmd)
 cmd.run_command && cmd.error!
 shell = cmd.stdout.rstrip
 
-ohmyzsh_exists = Dir.exists?("/Users/#{user}/.oh-my-zsh")
+ohmyzsh_exists = Dir.exist?("/Users/#{user}/.oh-my-zsh")
 
 execute 'change_shell_to_zsh' do
   command "chsh -s #{which_zsh} #{user}"

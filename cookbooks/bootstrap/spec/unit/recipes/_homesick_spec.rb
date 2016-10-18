@@ -4,7 +4,7 @@ RSpec.describe "#{COOKBOOK_NAME}::_homesick" do
   let(:user) { 'rflair' }
   let(:castle_name) { 'limousine_ridin' }
   let(:github_repo) { 'git:://github.com/rflair/castle' }
-  let(:addl_symlinks) { [{'source' => 'test_file', 'link' => 'linked_file' }] }
+  let(:addl_symlinks) { [{ 'source' => 'test_file', 'link' => 'linked_file' }] }
   let(:chef_run) do
     ChefSpec::SoloRunner.new do |node|
       node.normal[COOKBOOK_NAME]['user']                            = user
@@ -17,17 +17,17 @@ RSpec.describe "#{COOKBOOK_NAME}::_homesick" do
   describe 'execute[clone_homesick_castle]:' do
     context 'castle dir does not exist' do
       before(:each) do
-        allow(Dir).to receive(:exists?).with("/Users/#{user}/.homesick/repos/#{castle_name}").and_return(false)
+        allow(Dir).to receive(:exist?).with("/Users/#{user}/.homesick/repos/#{castle_name}").and_return(false)
       end
 
       it "executes 'clone_homesick_castle'" do
-        expect(chef_run).to run_execute('clone_homesick_castle').with({ command: "homesick clone #{github_repo}" })
+        expect(chef_run).to run_execute('clone_homesick_castle').with(command: "homesick clone #{github_repo}")
       end
     end
 
     context 'castle dir already exists' do
       before(:each) do
-        allow(Dir).to receive(:exists?).with("/Users/#{user}/.homesick/repos/#{castle_name}").and_return(true)
+        allow(Dir).to receive(:exist?).with("/Users/#{user}/.homesick/repos/#{castle_name}").and_return(true)
       end
       it "does not execute 'clone_homesick_repo'" do
         expect(chef_run).to_not run_execute('clone_homesick_repo')

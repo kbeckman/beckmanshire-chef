@@ -34,31 +34,30 @@ RSpec.describe "#{COOKBOOK_NAME}::_homebrew" do
 
   describe 'Directories:' do
     it 'creates /usr/local' do
-      expect(chef_run).to create_directory('/usr/local').with({ owner: user, group: 'admin', mode: '0755' })
+      expect(chef_run).to create_directory('/usr/local').with(owner: user, group: 'admin', mode: '0755')
     end
   end
 
   describe 'Execute Blocks:' do
-
     it "executes 'brew prune'" do
-      expect(chef_run).to run_execute('brew prune').with({ user: user, command: 'brew prune' })
+      expect(chef_run).to run_execute('brew prune').with(user: user, command: 'brew prune')
     end
 
     context 'homebrew cask cache dir does not exist' do
-      before(:each) { allow(Dir).to receive(:exists?).and_return(false) }
+      before(:each) { allow(Dir).to receive(:exist?).and_return(false) }
 
       CASK_COMMANDS.each_pair do |k, v|
-        it "executes #{k.to_s}" do
-          expect(chef_run).to run_execute(k.to_s).with({ user: user, command: v })
+        it "executes #{k}" do
+          expect(chef_run).to run_execute(k.to_s).with(user: user, command: v)
         end
       end
     end
 
     context 'homebrew cask cache dir exists' do
-      before(:each) { allow(Dir).to receive(:exists?).and_return(true) }
+      before(:each) { allow(Dir).to receive(:exist?).and_return(true) }
 
       CASK_COMMANDS.each_pair do |k, _v|
-        it "executes #{k.to_s}" do
+        it "executes #{k}" do
           expect(chef_run).to_not run_execute(k.to_s)
         end
       end

@@ -1,11 +1,8 @@
 require 'spec_helper'
 
 RSpec.describe "#{COOKBOOK_NAME}::mac_os" do
-  RECIPES = ["#{COOKBOOK_NAME}::_default",
-             "#{COOKBOOK_NAME}::_homebrew",
-             'rvm::user',
-             "#{COOKBOOK_NAME}::_oh_my_zsh",
-             "#{COOKBOOK_NAME}::_homesick"]
+  RECIPES = ["#{COOKBOOK_NAME}::_default", "#{COOKBOOK_NAME}::_homebrew", 'rvm::user',
+             "#{COOKBOOK_NAME}::_oh_my_zsh", "#{COOKBOOK_NAME}::_homesick"].freeze
 
   let(:chef_run) do
     ChefSpec::SoloRunner.new do |node|
@@ -30,8 +27,7 @@ RSpec.describe "#{COOKBOOK_NAME}::mac_os" do
 
   describe 'reboot_system' do
     it 'requests a reboot' do
-      expect(chef_run).to request_reboot('reboot_system').
-        with({ reason: 'End of chef-client run...', delay_mins: 0 })
+      expect(chef_run).to request_reboot('reboot_system').with(reason: 'End of chef-client run...', delay_mins: 0)
     end
   end
 end

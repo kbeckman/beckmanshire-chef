@@ -8,7 +8,7 @@ addl_symlinks = node['bootstrap']['homesick']['additional_symlinks']
 execute 'clone_homesick_castle' do
   user    user
   command "homesick clone #{github_repo}"
-  not_if  { Dir.exists?("/Users/#{user}/.homesick/repos/#{castle_name}") }
+  not_if  { Dir.exist?("/Users/#{user}/.homesick/repos/#{castle_name}") }
 end
 
 execute 'symlink_homesick_castle' do
@@ -21,7 +21,7 @@ end
 
 addl_symlinks.each do |symlink|
   execute "symlink #{symlink['link']}" do
-    user         user
+    user        user
     command     "ln -sfv #{symlink['source']} #{symlink['link']}"
     action      :nothing
     subscribes  :run, 'execute[symlink_homesick_castle]', :immediately

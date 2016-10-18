@@ -1,16 +1,7 @@
 {
-  "run_list": [
-    "recipe[homebrew]",
-    "recipe[homebrew::install_formulas]",
-    "recipe[homebrew::install_casks]",
-    "recipe[bootstrap_osx::brew_link_openssl]",
-    "recipe[rvm::user]"
-  ],
-  "automatic": {
-    "ipaddress": "vm-osx-sandbox"
-  },
+  "run_list": [ "recipe[bootstrap::mac_os]" ],
   "bootstrap_osx": {
-    "osx_user": "kbeckman"
+    "user": "kbeckman"
   },
   "homebrew": {
     "owner":        "kbeckman",

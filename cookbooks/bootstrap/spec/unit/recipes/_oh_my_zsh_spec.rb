@@ -20,7 +20,7 @@ RSpec.describe "#{COOKBOOK_NAME}::_oh_my_zsh" do
     shell_double = double('shell_double')
     allow(shell_double).to receive(:run_command)
     allow(shell_double).to receive(:error!)
-    allow(shell_double).to receive(:stdout).and_return(which_zsh )
+    allow(shell_double).to receive(:stdout).and_return(which_zsh)
     allow(Mixlib::ShellOut).to receive(:new).with('echo $SHELL').and_return(shell_double)
   end
 
@@ -35,7 +35,7 @@ RSpec.describe "#{COOKBOOK_NAME}::_oh_my_zsh" do
       end
 
       it "executes 'change_shell_to_zsh'" do
-        expect(chef_run).to run_execute('change_shell_to_zsh').with({ command: "chsh -s #{which_zsh} #{user}" })
+        expect(chef_run).to run_execute('change_shell_to_zsh').with(command: "chsh -s #{which_zsh} #{user}")
       end
     end
 
@@ -48,18 +48,18 @@ RSpec.describe "#{COOKBOOK_NAME}::_oh_my_zsh" do
 
   describe 'remote_file[ohmyzsh_installer]:' do
     context '/Users/[user]/.oh-my-zsh does not exist' do
-      before(:each) { allow(Dir).to receive(:exists?).with("/Users/#{user}/.oh-my-zsh").and_return(false)}
+      before(:each) { allow(Dir).to receive(:exist?).with("/Users/#{user}/.oh-my-zsh").and_return(false) }
 
       it "executes 'ohmyzsh_installer'" do
-        expect(chef_run).to create_remote_file('ohmyzsh_installer').
-          with({ path:  "#{Chef::Config[:file_cache_path]}/install-ohmyzsh.sh",
-                 source:  'http://install.ohmyz.sh',
-                 mode:    '0777' })
+        expect(chef_run).to create_remote_file('ohmyzsh_installer')
+          .with(path:  "#{Chef::Config[:file_cache_path]}/install-ohmyzsh.sh",
+                source:  'http://install.ohmyz.sh',
+                mode:    '0777')
       end
     end
 
     context '/Users/[user]/.oh-my-zsh exists' do
-      before(:each) { allow(Dir).to receive(:exists?).with("/Users/#{user}/.oh-my-zsh").and_return(true)}
+      before(:each) { allow(Dir).to receive(:exist?).with("/Users/#{user}/.oh-my-zsh").and_return(true) }
 
       it "doesn't execute 'ohmyzsh_installer'" do
         expect(chef_run).to_not create_remote_file('ohmyzsh_installer')

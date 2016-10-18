@@ -35,7 +35,7 @@
       "imagemagick",
       "phantomjs",
       "docker-swarm",
-      "qt"
+      "go"
     ],
     "casks": [
       "gfxcardstatus",
@@ -47,6 +47,8 @@
       "skitch",
       "iterm2",
       "firefox",
+      "torbrowser",
+      "netgeargenie",
       "google-chrome",
       "google-drive",
       "adobe-reader",
@@ -58,6 +60,7 @@
       "dockertoolbox",
       "virtualbox",
       "virtualbox-extension-pack",
+      "vmware-fusion",
       "vagrant"
     ]
   },
@@ -76,8 +79,8 @@
           { "name": "bundler" },
           { "name": "homesick" },
           { "name": "pry" },
-          { "name": "pry-byebug" },
           { "name": "rake" },
+          { "name": "rubocop" },
           { "name": "tmuxinator" }
         ]
       }
