@@ -1,6 +1,6 @@
 {
   "run_list": [ "recipe[bootstrap::mac_os]" ],
-  "bootstrap_osx": {
+  "bootstrap": {
     "user": "kbeckman"
   },
   "homebrew": {
@@ -63,7 +63,6 @@
         "user":           "kbeckman",
         "install_rubies": true,
         "default_ruby":   "ruby-2.3.1",
-        "rubies":         [ "ruby-2.1.6", "ruby-2.2.5" ],
         "global_gems": [
           {
             "name":   "rubygems-bundler",
