@@ -34,15 +34,14 @@ ssh-keygen -t rsa -b 4096 -C "your_email@your_domain.com"
 
 ## Instructions ##
 
-### Target System Setup ###
-
 ### Vendor Berkshelf Dependencies ###
 
-**beckmanshire-chef** requires the cookbooks defined in this repository as well as some community cookbooks from 
+**beckmanshire-chef** is dependant on the cookbooks defined in this repository as well as some community cookbooks from 
 [supermarket.chef.io](https://supermarket.chef.io/). From your host machine, run the following command to gather all 
 necessary dependencies locally.
 
 ```shell
+# From your host machine...
 berks vendor
 ```
 
@@ -53,27 +52,22 @@ This will download all necessary cookbook files to `berks-cookbooks`.
 From your host machine, run the following command to copy the **beckmanshire-chef** contents to the target machine.
 
 ```shell
+# From your host machine...
 rsync -r . [username]@[target-machine]:~/.chef_zero
 ```
 
 ### Execute chef-client ###
 
-Once all of the files have been copied to the target system, run the following command to execute the `chef-client`
-utility _in local mode_ to bootstrap the target system.
-
-- **node-name** - hostname of the target machine
-- **target-node** - node filename for the target machine
-
-```shell
-sudo chef-client -z -N [node-name] -c ~/.chef_zero/chef_zero.rb -j ~/.chef_zero/nodes/[target_node].json
-```
+To make the setup and execution of the `chef-client` easier and more efficient on target machines, a shell script is 
+included in this project that contains the necessary command line execution options. The only prerequisite for using 
+this script is to ensure that any node JSON definition included in `/nodes` is _named with the target machines's 
+**hostname** value_. For example: `nodes/kbeckman-macbook.local.json`
 
 ```shell
-# Keeping this command handy for VM testing...
-sudo chef-client -z -N vm-macos-sierra -c ~/.chef_zero/chef_zero.rb -j ~/.chef_zero/nodes/vm-macos.json
+# From your target machine...
+./.chef_zero/chef_client.sh
 ```
 
-_NOTE: Sometimes the chef-client tends to fail during the execution when it's running the homebrew cask installations.
-If/when that happens, just rerun the command to continue the process. All of the Chef commands are idempotent and it 
-doesn't hurt to run the process multiple times._
-
+_NOTE: Occasionally the chef-client tends to fail during the execution when it's running homebrew cask installations.
+If/when that happens, simply rerun the command to continue the process. All of the Chef commands are idempotent and are
+designed to be executed multiple times._
