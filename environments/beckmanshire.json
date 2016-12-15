@@ -15,6 +15,12 @@
         ]
       }
     },
+    "homebrew": {
+      "owner":        "kbeckman",
+      "auto-update":  true,
+      "formulas":     [],
+      "casks":        []
+    },
     "rvm": {
       "user_installs": [
         {
