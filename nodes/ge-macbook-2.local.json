@@ -1,18 +1,7 @@
 {
-  "run_list": [
-    "recipe[bootstrap_osx]",
-    "recipe[homebrew]",
-    "recipe[homebrew::install_formulas]",
-    "recipe[homebrew::install_casks]",
-    "recipe[bootstrap_osx::brew_link_openssl]",
-    "recipe[rvm::user]",
-    "recipe[bootstrap_osx::homesick]"
-  ],
-  "automatic": {
-    "ipaddress": "ge-macbook-2.local"
-  },
-  "bootstrap_osx": {
-    "osx_user": "keithbeckman"
+  "run_list": ["recipe[bootstrap::mac_os]"],
+  "bootstrap": {
+    "user": "keithbeckman"
   },
   "homebrew": {
     "owner":        "keithbeckman",
@@ -67,22 +56,7 @@
   "rvm": {
     "user_installs": [
       {
-        "user":           "keithbeckman",
-        "install_rubies": true,
-        "default_ruby":   "ruby-2.3.1",
-        "rubies":         [ "ruby-2.2.5" ],
-        "global_gems": [
-          {
-            "name":   "rubygems-bundler",
-            "action": "remove"
-          },
-          { "name": "bundler" },
-          { "name": "homesick" },
-          { "name": "pry" },
-          { "name": "rake" },
-          { "name": "rubocop" },
-          { "name": "tmuxinator" }
-        ]
+        "user": "keithbeckman",
       }
     ]
   }

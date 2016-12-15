@@ -1,28 +1,13 @@
 {
   "run_list": [ "recipe[bootstrap::mac_os]"],
-  "bootstrap": {
-    "user": "kbeckman",
-    "homesick": {
-      "castle_name": "beckmanshire",
-      "github_repo": "git://github.com/kbeckman/beckmanshire.git",
-      "additional_symlinks": [
-        {
-          "source": "~/.homesick/repos/beckmanshire/home/.gitconfig-mac",
-          "link": "~/.gitconfig"
-        },
-        {
-          "source": "~/.homesick/repos/beckmanshire/images",
-          "link": "~/Pictures/beckmanshire-images"
-        }
-      ]
-    }
-  },
   "homebrew": {
     "owner":        "kbeckman",
     "auto-update":  true,
     "formulas": [
+      "git",
       "openssl",
-      "mas"
+      "mas",
+      "zsh"
     ],
     "casks": [
       "flux",
@@ -32,22 +17,7 @@
   "rvm": {
     "user_installs": [
       {
-        "user":           "kbeckman",
-        "install_rubies": true,
-        "default_ruby":   "ruby-2.3.1",
-        "rubies":         [ "ruby-2.1.6" ],
-        "global_gems": [
-          {
-            "name":   "rubygems-bundler",
-            "action": "remove"
-          },
-          { "name": "bundler" },
-          { "name": "homesick" },
-          { "name": "pry" },
-          { "name": "pry-byebug" },
-          { "name": "rake" },
-          { "name": "tmuxinator" }
-        ]
+        "rubies": [ "ruby-2.1.6" ]
       }
     ]
   }
