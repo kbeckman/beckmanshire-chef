@@ -1,0 +1,26 @@
+{
+  "run_list": [ "recipe[bootstrap::mac_os]" ],
+  "homebrew": {
+    "owner":        "kbeckman",
+    "auto-update":  true,
+    "formulas": [
+      "git",
+      "mas",
+      "openssl",
+      "p7zip",
+      "reattach-to-user-namespace",
+      "ssh-copy-id",
+      "tmux",
+      "tree",
+      "vim",
+      "wget",
+      "zsh"
+    ],
+    "casks": [
+      "google-chrome",
+      "google-drive",
+      "iterm2",
+      "netgeargenie"
+    ]
+  }
+}
