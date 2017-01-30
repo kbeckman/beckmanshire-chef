@@ -17,10 +17,8 @@
       "zsh"
     ],
     "casks": [
-      "google-chrome",
       "google-drive",
-      "iterm2",
-      "netgeargenie"
+      "iterm2"
     ]
   }
 }
