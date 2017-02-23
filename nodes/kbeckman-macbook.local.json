@@ -13,7 +13,6 @@
       "mas",
       "openssl",
       "phantomjs",
-      "postgresql",
       "p7zip",
       "reattach-to-user-namespace",
       "ssh-copy-id",
@@ -30,6 +29,7 @@
       "datagrip",
       "diffmerge",
       "dockertoolbox",
+      "filezilla",
       "firefox",
       "flux",
       "gfxcardstatus",
@@ -37,6 +37,7 @@
       "google-drive",
       "google-earth",
       "google-earth-web-plugin",
+      "gpgtools",
       "iterm2",
       "libreoffice",
       "netgeargenie",
@@ -51,7 +52,8 @@
       "vagrant",
       "virtualbox",
       "virtualbox-extension-pack",
-      "vmware-fusion"
+      "vmware-fusion",
+      "zoom"
     ]
   }
 }
