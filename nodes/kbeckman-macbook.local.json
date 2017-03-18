@@ -5,6 +5,10 @@
     "auto-update":  true,
     "formulas": [
       "awscli",
+      "curl",
+      "docker",
+      "docker-compose",
+      "docker-machine",
       "docker-swarm",
       "elixir",
       "go",
@@ -28,7 +32,6 @@
       "adobe-reader",
       "datagrip",
       "diffmerge",
-      "dockertoolbox",
       "filezilla",
       "firefox",
       "flux",
@@ -37,7 +40,7 @@
       "google-drive",
       "google-earth",
       "google-earth-web-plugin",
-      "gpgtools",
+      //"gpgtools",
       "iterm2",
       "libreoffice",
       "netgeargenie",
@@ -52,8 +55,7 @@
       "vagrant",
       "virtualbox",
       "virtualbox-extension-pack",
-      "vmware-fusion",
-      "zoom"
+      "vmware-fusion"
     ]
   }
 }
