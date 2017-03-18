@@ -15,7 +15,7 @@ dependencies via Berkshelf and **rsync** the repo to the target machine.
 xcode-select --install
 ```
 - [Enable Remote Login for SSH Access](https://support.apple.com/kb/PH21839?locale=en_US&viewlocale=en_US)
-- SSH Setup
+- SSH Setup. Add the target machine's public SSH key to GitHub.
 ```shell
 # From your host...
 ssh-copy-id -i  ~/.ssh/id_rsa username@vm-hostname
