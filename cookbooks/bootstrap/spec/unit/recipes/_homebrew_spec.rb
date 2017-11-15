@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 RSpec.describe "#{COOKBOOK_NAME}::_homebrew" do
-  RECIPES       = %w(homebrew homebrew::install_formulas homebrew::install_casks).freeze
+  RECIPES       = %w[homebrew homebrew::install_formulas homebrew::install_casks].freeze
   CASK_COMMANDS = { brew_uninstall_cask: 'brew uninstall --force brew-cask',
                     brew_cleanup:        'brew cleanup',
                     brew_cask_cleanup:   'brew cask cleanup' }.freeze
