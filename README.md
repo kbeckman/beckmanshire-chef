@@ -14,8 +14,9 @@ dependencies via Berkshelf and **rsync** the repo to the target machine.
 ```
 xcode-select --install
 ```
-- [Enable Remote Login for SSH Access](https://support.apple.com/kb/PH21839?locale=en_US&viewlocale=en_US)
-- SSH Setup. Add the target machine's public SSH key to GitHub.
+- Install [ChefDK](https://downloads.chef.io/chef-dk/mac/)
+- Generate an SSH key pair for the target machine (required for GitHub access to `beckmanshire` homesick repo). After
+  creation, add the public key to GitHub.
 ```shell
 # From your host...
 ssh-copy-id -i  ~/.ssh/id_rsa username@vm-hostname
