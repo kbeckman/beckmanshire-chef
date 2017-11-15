@@ -1,36 +1,58 @@
-# beckmanshire-chef #
+# beckmanshire-chef
 
-**beckmanshire-chef** is a Chef repository that contains the cookbook and configuration files necessary for boostrapping
-a macOS development machine. This repository is completely self-contained and requires the cook to download the cookbook
-dependencies via Berkshelf and **rsync** the repo to the target machine.
+**beckmanshire-chef** is a complete Chef repository containing the cookbook and configuration files necessary for 
+bootstrapping a macOS development machine. This repository is completely self-contained -- the cook is required to 
+download the various cookbook dependencies via Berkshelf and **rsync** the repo to the target machine (_see 
+"Bootstrap Instructions" section below_).
 
-## Prerequisites ##
 
-### System Setup ###
+## Prerequisites
 
-- (VM) Install VMWare Tools.
+The following sections describe the necessary prerequisites that should be installed/configured on the target machine
+before running the `chef-client` to bootstrap. 
+
+### macOS VM
+
+- Install VMWare Tools.
+  - _NOTE: You may have to completely shutdown (rather than reboot) the VMWare VM after installing VMWare Tools for the
+    screen resolution to adjust out of 1024x768._
+
+### macOS VM and Server Installations
+
+- Disable Messages and FaceTime.
+
+### All Installations
+
+#### From the Controller / Host Machine...
+
+- Copy SSH public key from controller / host to the target machine.
+  - _NOTE: It may be preferable to use an SSH key without a passphrase specifically for this purpose._ 
+```shell
+ssh-copy-id -i ~/.ssh/keys/vm-macos-ssh username@vm-hostname
+```
+
+#### From the Target Machine...
+
+- Configure `System Preferences / Sharing`
+  - Enable `Remote Login` for SSH access.
+  - Change `Computer Name` and `Local Hostname`.
+- Edit `/etc/sudoers` to add the following to enable passwordless SSH access.
+```
+%admin		ALL = (ALL) NOPASSWD:ALL
+```
 - Install XCode from the AppStore and accept the license agreement.
 - Install the OSX Command Line Tools.
-```
+```shell
 xcode-select --install
 ```
 - Install [ChefDK](https://downloads.chef.io/chef-dk/mac/)
 - Generate an SSH key pair for the target machine (required for GitHub access to `beckmanshire` homesick repo). After
   creation, add the public key to GitHub.
 ```shell
-# From your host...
-ssh-copy-id -i  ~/.ssh/id_rsa username@vm-hostname
-```
-```
-# From your Chef client...
 ssh-keygen -t rsa -b 4096 -C "your_email@your_domain.com"
+cat .ssh/id_rsa.pub
 ```
-- Install [ChefDK](https://downloads.chef.io/chef-dk/mac/)
-- (VM) Create a VM snapshot.
-- (Sierra) Make the following edit to the `/etc/sudoers` file.
-```
-%admin		ALL = (ALL) NOPASSWD:ALL
-```
+- If your target machine is a VM, create a VM snapshot.
 
 
 ## Instructions ##
