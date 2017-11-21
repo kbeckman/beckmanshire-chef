@@ -1,3 +1,6 @@
 source 'https://supermarket.chef.io'
 
+# TODO: Let the metadata.rb take care of this dependency when there is a more recent version of 'homebrew' (4.2.0)...
+cookbook 'homebrew', git: 'git://github.com/chef-cookbooks/homebrew.git'
+
 metadata
