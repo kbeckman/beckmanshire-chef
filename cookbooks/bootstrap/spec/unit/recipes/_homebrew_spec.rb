@@ -7,6 +7,7 @@ RSpec.describe "#{COOKBOOK_NAME}::_homebrew" do
                     brew_cask_cleanup:  'brew cask cleanup' }.freeze
 
   let(:user) { 'jduggan' }
+
   let(:chef_run) do
     ChefSpec::SoloRunner.new(CHEF_SPEC_OPTS) do |node|
       node.normal[COOKBOOK_NAME]['user'] = user
