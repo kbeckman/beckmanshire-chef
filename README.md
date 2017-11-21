@@ -48,6 +48,8 @@ xcode-select --install
 - Install [ChefDK](https://downloads.chef.io/chef-dk/mac/)
 - Generate an SSH key pair for the target machine (required for GitHub access to `beckmanshire` homesick repo). After
   creation, add the public key to GitHub.
+  - _NOTE: This key should be generated without a passphrase so the `chef-client` can successfully clone a git 
+    repository without being prompted for a passphrase._
 ```shell
 ssh-keygen -t rsa -b 4096 -C "your_email@your_domain.com"
 cat .ssh/id_rsa.pub
@@ -55,31 +57,31 @@ cat .ssh/id_rsa.pub
 - If your target machine is a VM, create a VM snapshot.
 
 
-## Instructions ##
+## Bootstrap Instructions
 
-### Vendor Berkshelf Dependencies ###
+### From the Controller / Host Machine...
+
+#### Vendor Berkshelf Dependencies
 
 **beckmanshire-chef** is dependant on the cookbooks defined in this repository as well as some community cookbooks from 
 [supermarket.chef.io](https://supermarket.chef.io/). From your host machine, run the following command to gather all 
-necessary dependencies locally.
+necessary dependencies locally. The following command will download all cookbook dependencies to `/berks-cookbooks`.
 
 ```shell
-# From your host machine...
-berks vendor
+berks install && berks vendor --delete
 ```
 
-This will download all necessary cookbook files to `berks-cookbooks`.
-
-### rsync Cookbook Files and Config to Target System ###
+#### rsync Cookbook Files and Config to Target Machine 
 
 From your host machine, run the following command to copy the **beckmanshire-chef** contents to the target machine.
 
 ```shell
-# From your host machine...
 rsync -r . [username]@[target-machine]:~/.chef_zero
 ```
 
-### Execute chef-client ###
+### From the Target Machine...
+
+#### Execute chef-client
 
 To make the setup and execution of the `chef-client` easier and more efficient on target machines, a shell script is 
 included in this project that contains the necessary command line execution options. The only prerequisite for using 
@@ -87,7 +89,6 @@ this script is to ensure that any node JSON definition included in `/nodes` is _
 **hostname** value_. For example: `nodes/kbeckman-macbook.local.json`
 
 ```shell
-# From your target machine...
 ./.chef_zero/chef_client.sh
 ```
 
