@@ -45,7 +45,9 @@ ssh-copy-id -i ~/.ssh/keys/vm-macos-ssh username@vm-hostname
 ```shell
 xcode-select --install
 ```
-- Install [ChefDK](https://downloads.chef.io/chef-dk/mac/)
+- Install [ChefDK](https://downloads.chef.io/chef-dk/mac/).
+  - _NOTE: Due to some gem dependencies that have not been updated for Chef 13 compatibility, the latest version of the
+    ChefDK found to work with `beckmanshire-chef` is `v1.6.11`._
 - Generate an SSH key pair for the target machine (required for GitHub access to `beckmanshire` homesick repo). After
   creation, add the public key to GitHub.
   - _NOTE: This key should be generated without a passphrase so the `chef-client` can successfully clone a git 
