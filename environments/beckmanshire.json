@@ -26,12 +26,8 @@
         {
           "user":           "kbeckman",
           "install_rubies": true,
-          "default_ruby":   "ruby-2.4.0",
+          "default_ruby":   "ruby-2.4.2",
           "global_gems": [
-            {
-              "name":   "rubygems-bundler",
-              "action": "remove"
-            },
             { "name": "bundler" },
             { "name": "homesick" },
             { "name": "pry" },
