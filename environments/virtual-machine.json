@@ -1,0 +1,52 @@
+{
+  "name":         "virtual-machine",
+  "description":  "Default attributes, etc. for all virtual machines (used for testing) provisioned with beckmanshire-chef.",
+  "default_attributes": {
+    "bootstrap": {
+      "user": "kbeckman",
+      "homesick": {
+        "castle_name": "beckmanshire",
+        "github_repo": "git://github.com/kbeckman/beckmanshire.git",
+        "additional_symlinks": [
+          {
+            "source": "~/.homesick/repos/beckmanshire/home/.gitconfig-mac",
+            "link":   "~/.gitconfig"
+          }
+        ]
+      }
+    },
+    "homebrew": {
+      "owner":        "kbeckman",
+      "auto-update":  true,
+      "formulas": [
+        "git",
+        "openssl",
+        "mas",
+        "tmux",
+        "zsh"
+      ],
+      "casks": [
+        "flux",
+        "iterm2"
+      ]
+    },
+    "rvm": {
+      "user_installs": [
+        {
+          "user":           "kbeckman",
+          "install_rubies": true,
+          "default_ruby":   "ruby-2.4.2",
+          "rubies":         ["ruby-2.3.5"],
+          "global_gems": [
+            { "name": "bundler" },
+            { "name": "homesick" },
+            { "name": "pry" },
+            { "name": "pry-byebug" },
+            { "name": "rake" },
+            { "name": "tmuxinator" }
+          ]
+        }
+      ]
+    }
+  }
+}
