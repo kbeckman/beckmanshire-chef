@@ -8,8 +8,8 @@ issues_url        'https://github.com/kbeckman/beckmanshire-chef/issues'
 
 license           'MIT'
 version           '0.2.0'
-# chef_version      '~> 13'
-supports          '>= 10.13'
+chef_version      '~> 12'
+supports          'mac_os_x', '>= 10.13'
 
 depends           'homebrew', '~> 4.2.0'
 depends           'rvm',      '~> 0.9.4'
