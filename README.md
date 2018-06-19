@@ -41,6 +41,9 @@ ssh-copy-id -i ~/.ssh/keys/vm-macos-ssh username@vm-hostname
 %admin		ALL = (ALL) NOPASSWD:ALL
 ```
 - Install XCode from the AppStore and accept the license agreement.
+```shell
+sudo xcodebuild -license accept
+```
 - Install the OSX Command Line Tools.
 ```shell
 xcode-select --install
