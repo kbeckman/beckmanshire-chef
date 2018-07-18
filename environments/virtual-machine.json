@@ -1,6 +1,6 @@
 {
-  "name":         "beckmanshire",
-  "description":  "Default attributes, etc. for all machines provisioned with beckmanshire-chef.",
+  "name":         "virtual-machine",
+  "description":  "Default attributes, etc. for all virtual machines (used for testing) provisioned with beckmanshire-chef.",
   "default_attributes": {
     "bootstrap": {
       "user": "kbeckman",
@@ -18,8 +18,17 @@
     "homebrew": {
       "owner":        "kbeckman",
       "auto-update":  true,
-      "formulas":     [],
-      "casks":        []
+      "formulas": [
+        "git",
+        "openssl",
+        "mas",
+        "tmux",
+        "zsh"
+      ],
+      "casks": [
+        "flux",
+        "iterm2"
+      ]
     },
     "rvm": {
       "user_installs": [
@@ -27,6 +36,7 @@
           "user":           "kbeckman",
           "install_rubies": true,
           "default_ruby":   "ruby-2.4.2",
+          "rubies":         ["ruby-2.3.5"],
           "global_gems": [
             { "name": "bundler" },
             { "name": "homesick" },

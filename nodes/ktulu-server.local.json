@@ -1,8 +1,6 @@
 {
-  "run_list": [ "recipe[bootstrap::mac_os]" ],
+  "run_list": ["recipe[bootstrap::mac_os]"],
   "homebrew": {
-    "owner":        "kbeckman",
-    "auto-update":  true,
     "formulas": [
       "git",
       "mas",

@@ -7,9 +7,9 @@ source_url        'https://github.com/kbeckman/beckmanshire-chef'
 issues_url        'https://github.com/kbeckman/beckmanshire-chef/issues'
 
 license           'MIT'
-version           '0.1.0'
+version           '0.2.0'
 chef_version      '~> 12'
-supports          '>= 10.11'
+supports          'mac_os_x', '>= 10.13'
 
-depends           'homebrew', '~> 2.1.2'
-depends           'rvm', '~> 0.9.4'
+depends           'homebrew', '~> 4.2.0'
+depends           'rvm',      '~> 0.9.4'
